@@ -8,6 +8,7 @@ const MarkdownEditor = () => {
         console.log(e.target.value);
       }}
       sx={{ height: "100vh" }}
+      rows={70}
     />
   );
 };

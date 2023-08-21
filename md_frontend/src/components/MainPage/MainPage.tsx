@@ -8,7 +8,7 @@ const MainPage = () => {
       direction="row"
       divider={<Divider orientation="vertical" flexItem />}
     >
-      <Stack sx={{ height: "100vh", width: "50vw" }}>
+      <Stack sx={{ height: "100vh", width: "50vw", overflow: "scroll" }}>
         <MarkdownEditor />
       </Stack>
       <Stack sx={{ height: "100vh", width: "50vw" }}></Stack>
