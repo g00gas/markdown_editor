@@ -1,16 +1,15 @@
 import TextField from "@mui/material/TextField";
 import { Marked } from "marked";
 const marked = new Marked();
-const MarkdownEditor = () => {
+const MarkdownEditor = ({ updateStringFn }) => {
   return (
     <TextField
       fullWidth
       multiline
       onChange={(e) => {
-        console.log("md string", e.target.value);
-        console.log("md", marked.parse(e.target.value));
+        updateStringFn(marked.parse(e.target.value));
       }}
-      sx={{ height: "100vh" }}
+      sx={{ height: "100%" }}
       rows={70}
     />
   );

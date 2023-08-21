@@ -1,7 +1,9 @@
 import { Divider } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import MarkdownEditor from "../MarkdownEditor/MarkdownEditor";
+import { useMarkdown } from "../../hooks/useMarkdown";
 
+const { stringPayload, updateStringsPayload } = useMarkdown();
 const MainPage = () => {
   return (
     <Stack
@@ -9,9 +11,11 @@ const MainPage = () => {
       divider={<Divider orientation="vertical" flexItem />}
     >
       <Stack sx={{ height: "100vh", width: "50vw", overflow: "scroll" }}>
-        <MarkdownEditor />
+        <MarkdownEditor updateStringFn={updateStringsPayload} />
       </Stack>
-      <Stack sx={{ height: "100vh", width: "50vw" }}></Stack>
+      <Stack sx={{ height: "100vh", width: "50vw" }}>
+        {stringPayload.mdString}
+      </Stack>
     </Stack>
   );
 };
