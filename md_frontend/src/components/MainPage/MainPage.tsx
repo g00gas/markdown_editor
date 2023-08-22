@@ -1,10 +1,11 @@
 import { Divider } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import MarkdownEditor from "../MarkdownEditor/MarkdownEditor";
-import { useMarkdown } from "../../hooks/useMarkdown";
+import { useContext } from "react";
+import { MarkdownContext } from "../../context/MarkdownContext";
 
-const { stringPayload, updateStringsPayload } = useMarkdown();
 const MainPage = () => {
+  const { updateStringsPayload, stringPayload } = useContext(MarkdownContext);
   return (
     <Stack
       direction="row"
@@ -13,9 +14,7 @@ const MainPage = () => {
       <Stack sx={{ height: "100vh", width: "50vw", overflow: "scroll" }}>
         <MarkdownEditor updateStringFn={updateStringsPayload} />
       </Stack>
-      <Stack sx={{ height: "100vh", width: "50vw" }}>
-        {stringPayload.mdString}
-      </Stack>
+      <Stack sx={{ height: "100vh", width: "50vw" }} />
     </Stack>
   );
 };

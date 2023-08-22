@@ -3,7 +3,6 @@ import React from "react";
 import { Inter } from "next/font/google";
 
 import "../styles/global.css";
-import { MarkdownProvider } from "../context/MarkdownContext";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -11,10 +10,8 @@ const inter = Inter({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <MarkdownProvider>
-      <div className={inter.className}>
-        <Component {...pageProps} />
-      </div>
-    </MarkdownProvider>
+    <div className={inter.className}>
+      <Component {...pageProps} />
+    </div>
   );
 }

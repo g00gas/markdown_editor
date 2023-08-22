@@ -7,7 +7,10 @@ const MarkdownEditor = ({ updateStringFn }) => {
       fullWidth
       multiline
       onChange={(e) => {
-        updateStringFn(marked.parse(e.target.value));
+        updateStringFn({
+          mdString: marked.parse(e.target.value),
+          unparsedString: e.target.value,
+        });
       }}
       sx={{ height: "100%" }}
       rows={70}

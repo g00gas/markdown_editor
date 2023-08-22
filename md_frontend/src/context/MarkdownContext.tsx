@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useMemo, useState } from "react";
+import { ReactNode, createContext, useMemo, useState } from "react";
 
 export interface MDPayload {
   mdString: string;
@@ -8,14 +8,15 @@ interface IDataContext {
   children?: ReactNode;
 }
 
-const MarkdownContext = createContext<MDPayload | undefined>(undefined);
+const MarkdownContext = createContext(undefined);
 
 const MarkdownProvider = ({ children }: IDataContext) => {
   const [stringPayload, updateStringsPayload] = useState<MDPayload>({
     mdString: "",
     unparsedString: "",
   });
-  const memoizedContext = useMemo<MDPayload>(
+  console.log(stringPayload);
+  const memoizedContext = useMemo(
     () => ({
       stringPayload,
       updateStringsPayload,
