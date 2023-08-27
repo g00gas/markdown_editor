@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useMemo, useState } from "react";
+import { ReactNode, createContext, useMemo, useState, useContext } from "react";
 
 export interface MDPayload {
   mdString: string;
@@ -29,6 +29,15 @@ const MarkdownProvider = ({ children }: IDataContext) => {
       {children}
     </MarkdownContext.Provider>
   );
+};
+export const useMarkdown = () => {
+
+  const context = useContext(MarkdownContext);
+
+  if (!context) {
+    throw new Error("Markdown context has returned undefined");
+  }
+  return context;
 };
 
 export { MarkdownContext, MarkdownProvider };
