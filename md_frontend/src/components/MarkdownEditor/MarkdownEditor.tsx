@@ -14,6 +14,8 @@ const MarkdownEditor = ({ updateStringFn }) => {
       }}
       sx={{ height: "100%" }}
       rows={70}
+      variant="standard"
+      placeholder="Put your Markdown here"
     />
   );
 };
